@@ -6,7 +6,16 @@ window.onload = () => {
              .register('./sw.js');
   }
   
-    // Set the date we're counting down to
+  document.getElementById("disable").onclick = function() {
+      alert("copy/paste now disabled");
+      document.addEventListener('copy', function(e) {
+          e.clipboardData.setData('text/plain', 'copy/paste disabled');
+          e.clipboardData.setData('text/html', '<b>copy/paste disabled</b>');
+          e.preventDefault();
+      });
+  }
+  
+  // Set the date we're counting down to
   var countDownDate = new Date("May 5, 2022 15:37:25").getTime();
 
   // Update the count down every 1 second
